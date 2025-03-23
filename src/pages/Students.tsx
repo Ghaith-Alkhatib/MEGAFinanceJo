@@ -43,7 +43,7 @@ const Students: React.FC = () => {
     setError("");
     try {
       const response = await axios.post(
-        "http://megaverse.runasp.net/api/Student/GetStudentsByFilter",
+        "https://megaverse.runasp.net/api/Student/GetStudentsByFilter",
         filters
       );
       setStudents(response.data);
@@ -59,7 +59,7 @@ const Students: React.FC = () => {
     setError("");
     try {
       await axios.post(
-        "http://megaverse.runasp.net/api/Student/AddOrUpdateStudent",
+        "https://megaverse.runasp.net/api/Student/AddOrUpdateStudent",
         formData
       );
       fetchStudents(filters); // Pass filters to keep the current filter state
@@ -85,7 +85,7 @@ const Students: React.FC = () => {
     setError("");
     try {
       await axios.delete(
-        `http://megaverse.runasp.net/api/Student/DeleteStudent/${id}`
+        `https://megaverse.runasp.net/api/Student/DeleteStudent/${id}`
       );
       fetchStudents(filters); // Pass filters to keep the current filter state
       if (formData.studentID === id) {

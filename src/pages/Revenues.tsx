@@ -68,7 +68,7 @@ const Revenues: React.FC = () => {
         Object.entries(filters).filter(([_, value]) => value !== "")
       );
       const response = await axios.post(
-        "http://megaverse.runasp.net/api/Revenue/GetRevenues",
+        "https://megaverse.runasp.net/api/Revenue/GetRevenues",
         payload
       );
       setRevenues(response.data);
@@ -83,7 +83,7 @@ const Revenues: React.FC = () => {
   const fetchCourses = async () => {
     try {
       const response = await axios.post(
-        "http://megaverse.runasp.net/api/Course/GetCourses",
+        "https://megaverse.runasp.net/api/Course/GetCourses",
         {}
       );
       setCourses(response.data);
@@ -113,7 +113,7 @@ const Revenues: React.FC = () => {
       console.log("Payload being sent:", payload); // Debugging line
   
       await axios.post(
-        "http://megaverse.runasp.net/api/Revenue/AddOrUpdateRevenue",
+        "https://megaverse.runasp.net/api/Revenue/AddOrUpdateRevenue",
         payload
       );
       fetchRevenues();
@@ -132,7 +132,7 @@ const Revenues: React.FC = () => {
 
     try {
       await axios.delete(
-        `http://megaverse.runasp.net/api/Revenue/DeleteRevenue/${id}`
+        `https://megaverse.runasp.net/api/Revenue/DeleteRevenue/${id}`
       );
       fetchRevenues();
     } catch (error) {

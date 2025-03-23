@@ -34,7 +34,7 @@ const Instructors: React.FC = () => {
     setError("");
 
     try {
-      const response = await axios.get("http://megaverse.runasp.net/api/Instructor/GetInstructors");
+      const response = await axios.get("https://megaverse.runasp.net/api/Instructor/GetInstructors");
       setInstructors(response.data);
     } catch (error) {
       setError("Failed to fetch instructors. Please try again.");
@@ -48,7 +48,7 @@ const Instructors: React.FC = () => {
     setError("");
 
     try {
-      await axios.post("http://megaverse.runasp.net/api/Instructor/AddOrUpdateInstructor", formData);
+      await axios.post("https://megaverse.runasp.net/api/Instructor/AddOrUpdateInstructor", formData);
       fetchInstructors();
       setShowModal(false);
     } catch (error) {
@@ -63,7 +63,7 @@ const Instructors: React.FC = () => {
     setError("");
 
     try {
-      await axios.delete(`http://megaverse.runasp.net/api/Instructor/DeleteInstructor/${id}`);
+      await axios.delete(`https://megaverse.runasp.net/api/Instructor/DeleteInstructor/${id}`);
       fetchInstructors();
     } catch (error) {
       setError("Failed to delete instructor. Please try again.");

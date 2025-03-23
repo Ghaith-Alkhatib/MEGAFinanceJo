@@ -54,7 +54,7 @@ const Dashboard: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get<DashboardData>(
-          "http://megaverse.runasp.net/api/Dashboard/GetDashboardStatistics"
+          "https://megaverse.runasp.net/api/Dashboard/GetDashboardStatistics"
         );
         setData(response.data);
       } catch (err) {

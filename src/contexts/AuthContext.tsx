@@ -42,7 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setLoading(true);
       setError(null);
       
-      const response = await fetch('http://megaverse.runasp.net/api/Login/UserLogin', {
+      const response = await fetch('https://megaverse.runasp.net/api/Login/UserLogin', {
         method: 'POST',
         headers: {
           'accept': '*/*',

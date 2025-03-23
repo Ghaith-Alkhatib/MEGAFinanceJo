@@ -65,7 +65,7 @@ useEffect(() => {
     );
   
     try {
-      const response = await axios.post("http://megaverse.runasp.net/api/Course/GetCourses", payload);
+      const response = await axios.post("https://megaverse.runasp.net/api/Course/GetCourses", payload);
       setCourses(response.data);
     } catch (error) {
       console.error("Error fetching courses:", error);
@@ -79,7 +79,7 @@ useEffect(() => {
 
   const fetchInstructors = async () => {
     try {
-      const response = await axios.get("http://megaverse.runasp.net/api/Instructor/GetInstructors");
+      const response = await axios.get("https://megaverse.runasp.net/api/Instructor/GetInstructors");
       setInstructors(response.data);
     } catch (error) {
       console.error("Error fetching instructors:", error);
@@ -91,7 +91,7 @@ useEffect(() => {
     setError("");
 
     try {
-      await axios.post("http://megaverse.runasp.net/api/Course/AddOrUpdateCourse", formData);
+      await axios.post("https://megaverse.runasp.net/api/Course/AddOrUpdateCourse", formData);
       fetchCourses();
       handleCloseModal();
     } catch (error) {
@@ -107,7 +107,7 @@ useEffect(() => {
     setError("");
 
     try {
-      await axios.delete(`http://megaverse.runasp.net/api/Course/DeleteCourse/${id}`);
+      await axios.delete(`https://megaverse.runasp.net/api/Course/DeleteCourse/${id}`);
       fetchCourses();
     } catch (error) {
       console.error("Error deleting course:", error);

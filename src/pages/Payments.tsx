@@ -68,7 +68,7 @@ const Payments: React.FC = () => {
   const fetchStudents = async () => {
     try {
       const response = await axios.post(
-        "http://megaverse.runasp.net/api/Student/GetStudentsByFilter",
+        "https://megaverse.runasp.net/api/Student/GetStudentsByFilter",
         {}
       );
       setStudents(response.data);
@@ -80,7 +80,7 @@ const Payments: React.FC = () => {
   const fetchCourses = async () => {
     try {
       const response = await axios.post(
-        "http://megaverse.runasp.net/api/Course/GetCourses",
+        "https://megaverse.runasp.net/api/Course/GetCourses",
         {}
       );
       setCourses(response.data);
@@ -98,7 +98,7 @@ const Payments: React.FC = () => {
         Object.entries(filters).filter(([_, value]) => value !== "")
       );
       const response = await axios.post(
-        "http://megaverse.runasp.net/api/Payment/GetPaymentsByFilter",
+        "https://megaverse.runasp.net/api/Payment/GetPaymentsByFilter",
         payload
       );
       setPayments(response.data);
@@ -120,7 +120,7 @@ const Payments: React.FC = () => {
         const fileFormData = new FormData();
         fileFormData.append("file", file);
         const fileResponse = await axios.post(
-          "http://megaverse.runasp.net/api/File/Upload",
+          "https://megaverse.runasp.net/api/File/Upload",
           fileFormData,
           {
             headers: {
@@ -132,7 +132,7 @@ const Payments: React.FC = () => {
       }
 
       await axios.post(
-        "http://megaverse.runasp.net/api/Payment/AddOrUpdatePayment",
+        "https://megaverse.runasp.net/api/Payment/AddOrUpdatePayment",
         { ...formData, fileID: fileId }
       );
       fetchPayments();
@@ -151,7 +151,7 @@ const Payments: React.FC = () => {
 
     try {
       await axios.delete(
-        `http://megaverse.runasp.net/api/Payment/DeletePayment/${id}`
+        `https://megaverse.runasp.net/api/Payment/DeletePayment/${id}`
       );
       fetchPayments();
     } catch (error) {
@@ -200,7 +200,7 @@ const Payments: React.FC = () => {
 
     // جلب الملف المرفق (إن وجد)
     if (payment.fileName) {
-      axios.get(`http://megaverse.runasp.net/api/File/Download/${payment.fileName}`, {
+      axios.get(`https://megaverse.runasp.net/api/File/Download/${payment.fileName}`, {
         responseType: 'blob'
       }).then(response => {
         const file = new File([response.data], payment.fileName || "file", { type: response.data.type });
@@ -358,7 +358,7 @@ const Payments: React.FC = () => {
                     {payment.fileName && (
                       <div className="flex space-x-2">
                         <a
-                          href={`http://megaverse.runasp.net/api/File/Download/${payment.fileName}`}
+                          href={`https://megaverse.runasp.net/api/File/Download/${payment.fileName}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-500 hover:underline"
@@ -366,7 +366,7 @@ const Payments: React.FC = () => {
                           Download
                         </a>
                         <a
-                          href={`http://megaverse.runasp.net/api/File/View/${payment.fileName}`}
+                          href={`https://megaverse.runasp.net/api/File/View/${payment.fileName}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-green-500 hover:underline"
